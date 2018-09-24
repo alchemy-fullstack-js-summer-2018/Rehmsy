@@ -1,9 +1,9 @@
-import { COLORS_LOAD, COLORS_ADD,  colors  } from './reducers';
+import { COLORS_LOAD, COLORS_ADD, SELECT_COLOR, colors, selectedColor  } from './reducers';
 
 describe('color reducers', () => {
 
   describe('my colors', () => {
-    const color = ['blue', 'purple'];
+    const color = ['blue', 'purple', 'pink'];
 
     it('defaults to empty array', () => {
       const state = colors(undefined, {});
@@ -25,5 +25,22 @@ describe('color reducers', () => {
       });
       expect(state).toEqual(color);
     });
+  });
+
+  describe('selected color', () => {
+    it('defaults to pink', () => {
+      const state = selectedColor('pink', {});
+      expect(state).toBe('pink');
+    });
+
+    it('currently selected color', () => {
+      const color = 'purple';
+      const state = selectedColor('', {
+        type: SELECT_COLOR,
+        payload: color
+      });
+      expect(state).toBe(color);
+    });
+
   });
 });
