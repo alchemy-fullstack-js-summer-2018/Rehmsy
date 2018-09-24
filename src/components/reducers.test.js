@@ -28,9 +28,9 @@ describe('color reducers', () => {
   });
 
   describe('selected color', () => {
-    it('defaults to pink', () => {
-      const state = selectedColor('pink', {});
-      expect(state).toBe('pink');
+    it('defaults to white', () => {
+      const state = selectedColor('white', {});
+      expect(state).toBe('white');
     });
 
     it('currently selected color', () => {
